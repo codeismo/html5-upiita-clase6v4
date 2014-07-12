@@ -51,13 +51,19 @@ $(function() {
 			//MODULOS A UTILIZAR
 			this.add('2d, aiBounce');
 
-			//colisiones para matar al enemigo
-
 			//colisiones para matar al jugador
+			this.on("bump.left, bump.right", function(colision){
+				if(colision.obj.isA("Jugador")){
+					colision.obj.destroy();
+					Q.stageScene("perder");
+				}
+			});
+			
+			//colisiones para matar al enemigo
 			this.on("bump.top", function(colision) {
 				if (colision.obj.isA("Jugador")) {
 					this.destroy();
-					alert("Juagador Gano");
+					Q.stageScene("ganar");
 				}
 			});
 
@@ -71,6 +77,16 @@ $(function() {
 				this.p.flip = false;
 			}
 		}
+	});
+
+	Q.scene("ganar", function(stage){
+		alert("ganaste");
+		Q.stageScene("nivel1");
+	});
+	
+	Q.scene("perder", function(stage){
+		alert("Game Over");
+		Q.stageScene("nivel1");
 	});
 
 	/* ------------------- DEFINICION DEL NIVEL 1 (escena) -----------------*/
