@@ -30,12 +30,14 @@ $(function() {
 			this.add("platformerControls, 2d");
 		},
 		//HACER QUE EL JUGADOR SE VOLTEE
-		step:  function(dt) {
-		if (Q.inputs['left'] && this.p.direction == 'right') {
-			this.p.flip = 'x';}
-		if (Q.inputs['right'] && this.p.direction == 'left') {
-  			this.p.flip = false;}
-	        }
+		step : function(dt) {
+			if (Q.inputs['left'] && this.p.direction == 'right') {
+				this.p.flip = 'x';
+			}
+			if (Q.inputs['right'] && this.p.direction == 'left') {
+				this.p.flip = false;
+			}
+		}
 	});
 
 	/* -------------------- DEFINICION DEL ENEMIGO ---------------------- */
@@ -89,7 +91,15 @@ $(function() {
 		var jugador = stage.insert(new Q.Jugador());
 
 		//HACER QUE LO SIGA LA CAMARA
-		stage.add("viewport").follow(jugador);
+		stage.add("viewport").follow(jugador, {
+			x : true,
+			y : true
+		}, {
+			minX : 0,
+			maxX : background.p.w,
+			minY : 0,
+			maxY : background.p.h
+		});
 		//INSERTAMOS un ENEMIGO
 		//stage.insert(new Q.Enemigo());
 
