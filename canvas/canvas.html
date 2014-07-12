@@ -19,12 +19,24 @@
         <script>
 			$(function() {
 				/*obtener el canvas DOM*/
+				var canvasJQ = $("canvas");
+				//objeto jQuery
+				var canvasDOM = canvasJQ[0];
+				//objeto DOM
 
 				/*obtener el contexto 2d*/
 				var contexto = canvasDOM.getContext("2d");
+
 				/*primero se definen los estilos
 				color, relleno, ancho y termacion de linea*/
 				//definir el color de línea y relleno
+				//definir el color de línea y relleno
+				contexto.strokeStyle = "red";
+				contexto.fillStyle = "green";
+				//definir el ancho en pixeles
+				contexto.lineWidth = 10;
+				//define como termina la linea
+				contexto.lineCap = "round";
 
 				/* dibujamos un camino */
 				//iniciando un camino
@@ -38,11 +50,9 @@
 				/*cerramos el camino y lo rellenamos*/
 				/*dibujamos un arco*/
 
-
 				/*dibujamos un rectangulo*/
 				//iniciar camino y al final pintar contronoy relleno
-				
-				
+
 				/*pintamos texto*/
 				//tamaño y tipo de letra
 				//alineación
@@ -50,7 +60,7 @@
 				//texto con contorno y posición
 				//rellenamos el texto
 				//pintamos su contorno
-				
+
 			});
         </script>
 
