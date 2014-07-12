@@ -48,6 +48,8 @@
 				contexto.lineTo(200, 250);
 				contexto.closePath();
 				//continuamos dibujando el camino
+				contexto.moveTo(100, 300);
+				contexto.lineTo(100, 400);
 				contexto.stroke();
 				contexto.fill();
 				
@@ -60,6 +62,9 @@
 
 				/*dibujamos un rectangulo*/
 				//iniciar camino y al final pintar contronoy relleno
+                contexto.beginPath();
+                contexto.arc(300, 300, 100, 0, Math.PI, true);
+                contexto.stroke();
 
 				/*pintamos texto*/
 				//tamaño y tipo de letra
