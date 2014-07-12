@@ -8,9 +8,7 @@ $(function() {
 	/* habilita los modulos para trabajar con colisiones y mapas */
 	Q.include("Sprites, Scenes, Input, Touch, 2D");
 	/* pinta el juego en la caja con id=juego y se maximiza el canvas*/
-	Q.setup("juego", {
-		maximize : true
-	});
+	Q.setup("juego");
 	/*habilitamos controles (teclado)*/
 	Q.controls();
 	/*habilitamos controles touch */
@@ -45,6 +43,10 @@ $(function() {
 		init : function(p) {
 			this._super(p, {
 				//ATRIBUTOS DEL ENEMIGO
+				asset: "enemigo.png",
+				x: 300,
+				y: 100,
+				vx: 200
 			});
 			//MODULOS A UTILIZAR
 			this.add('2d, aiBounce');
@@ -101,7 +103,7 @@ $(function() {
 			maxY : background.p.h
 		});
 		//INSERTAMOS un ENEMIGO
-		//stage.insert(new Q.Enemigo());
+		stage.insert(new Q.Enemigo());
 
 	});
 
