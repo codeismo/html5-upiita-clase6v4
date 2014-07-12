@@ -21,11 +21,13 @@ var MIAPP = {
 		FB.login(function(response) {
 			if (response.authResponse) {
 				//jugar
+				jugar();
 			} else {
 				//no acepto usar al app :(
+				alert("No acepto :( )");
 			}
 		}, {
-			//colocar el scope
+			scope: "email, publish_actions"
 		});
 
 	}
@@ -33,7 +35,7 @@ var MIAPP = {
 
 $(function() {
 	FB.init({
-		appId : 'Id APP',
+		appId : '1420492451522812',
 		xfbml : true,
 		version : 'v2.0'
 	});
@@ -43,10 +45,12 @@ $(function() {
 	FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
 			//inicia al app
-
+			jugar();
 		} else {
 			//mostrar el login
+			MIAPP.muestraLogin();
 		}
 	});
+
 
 });
