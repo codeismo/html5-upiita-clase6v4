@@ -4,15 +4,17 @@ $(function() {
 
 				/* Creamos un objeto con la funcion Quintus, lo guardamos en una variable
 				 * llamada Q */
-
+				var Q = Quintus();
 				/* habilita los modulos para trabajar con colisiones y mapas */
-
+				Q.include("Sprites, Scene, Input, Touch, 2D");
 				/* pinta el juego en la caja con id=juego y se maximiza el canvas*/
-
+				Q.setup("juego",{
+					maximize: true
+				});
 				/*habilitamos controles (teclado)*/
-
+				Q.controls();
 				/*habilitamos controles touch */
-
+				Q.touch();
 
 				/* -------------------- DEFINICION DEL JUGADOR ---------------------- */
 				Q.Sprite.extend("Jugador", {

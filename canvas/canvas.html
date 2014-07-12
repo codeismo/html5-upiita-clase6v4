@@ -34,7 +34,7 @@
 				contexto.strokeStyle = "red";
 				contexto.fillStyle = "green";
 				//definir el ancho en pixeles
-				contexto.lineWidth = 10;
+				contexto.lineWidth = 3;
 				//define como termina la linea
 				contexto.lineCap = "round";
 
@@ -59,16 +59,25 @@
 
 				/*cerramos el camino y lo rellenamos*/
 				/*dibujamos un arco*/
-
+				contexto.beginPath();
+                contexto.rect(100, 400, 200, 100);
+                contexto.stroke();
 				/*dibujamos un rectangulo*/
 				//iniciar camino y al final pintar contronoy relleno
                 contexto.beginPath();
                 contexto.arc(300, 300, 100, 0, Math.PI, true);
                 contexto.stroke();
+                contexto.fill();
 
 				/*pintamos texto*/
 				//tamaño y tipo de letra
-				//alineación
+				contexto.font="100px Arial";
+				contexto.textAlign= "center";
+
+				contexto.strokeText("Hola Mundo", 50, 500);
+				contexto.fillText("Hola Mundo", 50, 500);
+                                				//alineación
+		
 				//texto con relleno y posición
 				//texto con contorno y posición
 				//rellenamos el texto
