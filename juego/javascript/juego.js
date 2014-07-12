@@ -57,7 +57,14 @@ $(function() {
 
 		},
 		//QUE EL ENEMIGO GIRE
-
+		step: function(){
+			if(this.p.vx > 0){
+				this.p.flip = 'x';
+			}
+			if(this.p.vx < 0){
+				this.p.flip = false;
+			}
+		}
 	});
 
 	/* ------------------- DEFINICION DEL NIVEL 1 (escena) -----------------*/
