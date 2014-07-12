@@ -43,10 +43,10 @@ $(function() {
 		init : function(p) {
 			this._super(p, {
 				//ATRIBUTOS DEL ENEMIGO
-				asset: "enemigo.png",
-				x: 300,
-				y: 100,
-				vx: 200
+				asset : "enemigo.png",
+				x : 300,
+				y : 100,
+				vx : 200
 			});
 			//MODULOS A UTILIZAR
 			this.add('2d, aiBounce');
@@ -54,14 +54,20 @@ $(function() {
 			//colisiones para matar al enemigo
 
 			//colisiones para matar al jugador
+			this.on("bump.top", function(colision) {
+				if (colision.obj.isA("Jugador")) {
+					this.destroy();
+					alert("Juagador Gano");
+				}
+			});
 
 		},
 		//QUE EL ENEMIGO GIRE
-		step: function(){
-			if(this.p.vx > 0){
+		step : function() {
+			if (this.p.vx > 0) {
 				this.p.flip = 'x';
 			}
-			if(this.p.vx < 0){
+			if (this.p.vx < 0) {
 				this.p.flip = false;
 			}
 		}
